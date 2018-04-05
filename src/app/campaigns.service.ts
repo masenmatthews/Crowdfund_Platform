@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Campaign } from './models/campaign.model';
-import { CAMPAIGNS } from './mock-campaigns';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 
@@ -15,6 +14,10 @@ export class CampaignsService {
 
   getCampaigns() {
     return this.campaigns;
+  }
+
+  addCampaign(newCampaign: Campaign) {
+    this.campaigns.push(newCampaign);
   }
 
   getCampaignId(campaignId: number) {

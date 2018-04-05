@@ -19,7 +19,7 @@ export class CampaignsComponent implements OnInit {
     this.campaigns = this.campaignsService.getCampaigns();
   }
 
-  goToCampaign(clickedCampaign: Campaign) {
+  goToCampaign(clickedCampaiggtgg) {
     this.router.navigate(['campaigns', clickedCampaign.$key]);
 
   }
