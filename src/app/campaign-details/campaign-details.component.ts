@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Campaign } from '../models/campaign.model';
 import { CampaignsService } from '../campaigns.service';
+import { FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-campaign-details',
@@ -13,13 +14,13 @@ import { CampaignsService } from '../campaigns.service';
 
 export class CampaignDetailsComponent implements OnInit {
   campaignId: number;
-  campaignToDisplay: Campaign;
+  campaignToDisplay;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private location: Location, private campaignsService: CampaignsService) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-      this.campaignId = parseInt(urlParameters['id']);
+      this.campaignId = urlParameters['id'];
     });
     this.campaignToDisplay = this.campaignsService.getCampaignId(this.campaignId);
   }

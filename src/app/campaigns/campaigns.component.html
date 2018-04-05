@@ -8,9 +8,12 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let campaign of allCampaigns" (click)="goToCampaign(campaign)">
-    <td><h3><em>{{campaign.title}}</em></h3></td>
-    <td><h3>{{campaign.manager}}</h3></td>
-  </tr>
+    <tr *ngFor="let campaign of campaigns | async" (click)="goToCampaign(campaign)">
+      <td><h3><em>{{campaign.title}}</em></h3></td>
+      <td><h3>{{campaign.manager}}</h3></td>
+      <td><h3>{{campaign.$key}}</h3></td>
+    </tr>
   </tbody>
 </table>
+
+<br>

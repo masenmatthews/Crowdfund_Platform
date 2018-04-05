@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Campaign } from './models/campaign.model';
 import { CAMPAIGNS } from './mock-campaigns';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
+
 
 @Injectable()
 export class CampaignsService {
+  campaigns: FirebaseListObservable<any[]>;
 
-  constructor() { }
+  constructor(private database: AngularFireDatabase) {
+    this.campaigns = database.list('campaigns');
+  }
 
   getCampaigns() {
-    return CAMPAIGNS;
+    return this.campaigns;
   }
 
   getCampaignId(campaignId: number) {
-    for (var i = 0; i <= CAMPAIGNS.length - 1; i++) {
-      if (CAMPAIGNS[i].id === campaignId) {
-        return CAMPAIGNS[i];
-      }
-    }
+    return this.database.object('campaigns/' + campaignId);
   }
 
 }

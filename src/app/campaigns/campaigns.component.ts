@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CampaignsService } from '../campaigns.service';
 import { Campaign } from '../models/campaign.model';
 import { Router } from '@angular/router';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-campaigns',
@@ -10,16 +11,17 @@ import { Router } from '@angular/router';
   providers: [CampaignsService]
 })
 export class CampaignsComponent implements OnInit {
-  campaigns: Campaign[];
+  campaigns: FirebaseListObservable<any[]>;
 
   constructor(private router: Router, private campaignsService: CampaignsService) { }
 
   ngOnInit() {
-    this.allCampaigns = this.campaignsService.getCampaigns();
+    this.campaigns = this.campaignsService.getCampaigns();
   }
 
   goToCampaign(clickedCampaign: Campaign) {
-    this.router.navigate(['campaigns', clickedCampaign.id]);
+    this.router.navigate(['campaigns', clickedCampaign.$key]);
+
   }
 
 }

@@ -13,7 +13,7 @@
       <div>
         <label>Manager Name:</label>
         <br>
-        <input #newArtist class="form-control">
+        <input #newManager class="form-control">
       </div>
 
       <div>
@@ -21,8 +21,14 @@
         <br>
         <textarea #newDescription class="form-control"></textarea>
       </div>
+
+      <div>
+        <label>Funding Amount:</label>
+        <br>
+        <input #newAmount class="form-control">
+      </div>
       <br>
-      <button (click)="submitForm(newTitle.value, newManager.value, newDescription.value); newTitle.value=''; newManager.value=''; newDescription.value=''" class="btn btn-success btn-lg">Add</button>
+      <button (click)="submitForm(newTitle.value, newManager.value, newDescription.value, newAmount.value); newTitle.value=''; newManager.value=''; newDescription.value=''" class="btn btn-success btn-lg">Add</button>
     </div>
   </div>
 </div>
