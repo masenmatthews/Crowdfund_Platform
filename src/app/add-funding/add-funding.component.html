@@ -1,3 +1,28 @@
-<p>
-  add-funding works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">New Campaign</h3>
+  </div>
+  <div class="panel-body">
+    <div>
+      <div>
+        <label>Campaign Title:</label>
+        <br>
+        <input #newTitle class="form-control">
+      </div>
+      <br>
+      <div>
+        <label>Manager Name:</label>
+        <br>
+        <input #newArtist class="form-control">
+      </div>
+
+      <div>
+        <label>Album Description:</label>
+        <br>
+        <textarea #newDescription class="form-control"></textarea>
+      </div>
+      <br>
+      <button (click)="submitForm(newTitle.value, newManager.value, newDescription.value); newTitle.value=''; newManager.value=''; newDescription.value=''" class="btn btn-success btn-lg">Add</button>
+    </div>
+  </div>
+</div>

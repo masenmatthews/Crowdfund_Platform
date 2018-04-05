@@ -1,0 +1,16 @@
+<h3>Campaigns</h3>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th scope="col" class="col-header">Campaign Title</th>
+    <th scope="col" class="col-header">Manager</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let campaign of allCampaigns" (click)="goToCampaign(campaign)">
+    <td><h3><em>{{campaign.title}}</em></h3></td>
+    <td><h3>{{campaign.manager}}</h3></td>
+  </tr>
+  </tbody>
+</table>
